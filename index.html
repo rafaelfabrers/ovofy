@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OvoFy — Assinatura de Ovos em Casa - Limeira - SP</title>
+
+<!-- Open Graph / WhatsApp / Facebook / Instagram preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://clube-de-assinatura-ovify.vercel.app/">
+<meta property="og:title" content="OvoFy — Assinatura de Ovos em Casa">
+<meta property="og:description" content="Ovos Jumbo Premium, selecionados e entregues direto na sua casa. Assinatura mensal, sem sair do sofá.">
+<meta property="og:image" content="https://ovofy-clube-de-assinatura.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card (mesma imagem, usada como fallback por alguns apps) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OvoFy — Assinatura de Ovos em Casa">
+<meta name="twitter:description" content="Ovos Jumbo Premium, selecionados e entregues direto na sua casa. Assinatura mensal, sem sair do sofá.">
+<meta name="twitter:image" content="https://ovofy-clube-de-assinatura.vercel.app/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF5E8;
+    --cream-deep:#F3E9D4;
+    --yolk:#F2A33C;
+    --yolk-deep:#D98321;
+    --blue:#2F5C82;
+    --blue-deep:#234864;
+    --olive:#6F8C3F;
+    --terracotta:#D9692E;
+    --ink:#2B2420;
+    --ink-soft:#5A5048;
+    --nest:#8B5E3C;
+    --card:#FFFFFF;
+    --shadow: 0 10px 30px rgba(43,36,32,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Fredoka', sans-serif; font-weight:600; color:var(--ink);}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:.08em; text-transform:uppercase; color:var(--blue);
+    background:rgba(47,92,130,0.08); padding:6px 14px; border-radius:99px;
+  }
+  .btn{
+    display:inline-block; font-family:'Fredoka', sans-serif; font-weight:600;
+    font-size:16px; padding:14px 28px; border-radius:99px; border:none;
+    cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{ background:var(--terracotta); color:#fff; box-shadow:0 8px 20px rgba(217,105,46,0.35);}
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 26px rgba(217,105,46,0.45);}
+  .btn-ghost{ background:transparent; color:var(--blue); border:2px solid var(--blue);}
+  .btn-ghost:hover{ background:var(--blue); color:#fff;}
+
+  /* HEADER */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,245,232,0.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(43,36,32,0.06);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  .nav-logo{ display:flex; align-items:center; gap:10px;}
+  .nav-logo img{ height:42px; width:auto;}
+  .nav-logo span{ font-family:'Fredoka', sans-serif; font-weight:700; font-size:20px;}
+  .nav-logo .ovo{color:var(--yolk-deep);}
+  .nav-logo .fy{color:var(--olive);}
+  .nav-links{ display:flex; align-items:center; gap:32px; font-weight:600; font-size:15px;}
+  .nav-links a{ color:var(--ink-soft); transition:color .15s;}
+  .nav-links a:hover{ color:var(--terracotta);}
+  .nav-cta{ display:flex; align-items:center; gap:16px;}
+  .nav-toggle{ display:none; background:none; border:none; font-size:24px; cursor:pointer; color:var(--ink);}
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute; top:100%; left:0; right:0; background:var(--cream);
+      flex-direction:column; align-items:flex-start; padding:20px 24px; gap:18px;
+      border-bottom:1px solid rgba(43,36,32,0.08); display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-toggle{display:block;}
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* HERO */
+  .hero{ position:relative; padding:72px 0 60px; overflow:hidden;}
+  .hero::before{
+    content:""; position:absolute; top:-120px; right:-160px; width:480px; height:480px;
+    background:radial-gradient(circle, rgba(242,163,60,0.25), transparent 70%); border-radius:50%;
+  }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; position:relative;}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; text-align:center;} .hero::before{display:none;} }
+  .hero h1{ font-size:48px; line-height:1.12; margin:18px 0 20px;}
+  .hero h1 .accent{color:var(--terracotta);}
+  .hero p.lead{ font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:30px;}
+  @media (max-width:900px){ .hero p.lead{margin-left:auto; margin-right:auto;} }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap;}
+  @media (max-width:900px){ .hero-actions{justify-content:center;} }
+  .hero-trust{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap;}
+  @media (max-width:900px){ .hero-trust{justify-content:center;} }
+  .hero-trust div{ font-family:'Fredoka', sans-serif; font-weight:700; font-size:22px; color:var(--blue);}
+  .hero-trust span{ display:block; font-family:'Inter'; font-weight:500; font-size:13px; color:var(--ink-soft);}
+  .hero-visual{ display:flex; justify-content:center; position:relative;}
+  .hero-visual .ring{
+    position:absolute; width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle, rgba(255,255,255,0.9), rgba(243,233,212,0.4));
+    box-shadow:inset 0 0 0 1px rgba(43,36,32,0.04);
+  }
+  .hero-visual img{ width:340px; position:relative; z-index:1; filter:drop-shadow(0 20px 30px rgba(43,36,32,0.18));}
+
+  /* SECTION HEADINGS */
+  .section{ padding:84px 0;}
+  .section-head{ max-width:600px; margin:0 auto 50px; text-align:center;}
+  .section-head h2{ font-size:34px; margin:14px 0 12px;}
+  .section-head p{ color:var(--ink-soft); font-size:16px;}
+
+  /* COMO FUNCIONA */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  @media (max-width:780px){ .steps{grid-template-columns:1fr;} }
+  .step{ background:var(--card); border-radius:20px; padding:34px 28px; box-shadow:var(--shadow); position:relative;}
+  .step .num{
+    width:44px; height:44px; border-radius:50%; background:var(--cream-deep);
+    display:flex; align-items:center; justify-content:center; font-family:'Fredoka';
+    font-weight:700; color:var(--terracotta); margin-bottom:18px; font-size:18px;
+  }
+  .step h3{ font-size:20px; margin-bottom:8px;}
+  .step p{ color:var(--ink-soft); font-size:15px;}
+
+  /* PLANOS - egg carton style */
+  .carton{
+    background:linear-gradient(180deg, var(--nest) 0%, #6e472a 100%);
+    border-radius:28px; padding:14px; box-shadow:var(--shadow);
+  }
+  .carton-inner{
+    background:#fdfaf3; border-radius:18px; padding:34px;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+  }
+  @media (max-width:780px){ .carton-inner{grid-template-columns:1fr; padding:24px;} }
+  .plan{
+    border-radius:50% / 18% 18% 18% 18%;
+    border-radius:24px;
+    background:radial-gradient(ellipse at top, #fff 0%, var(--cream-deep) 100%);
+    box-shadow:inset 0 6px 14px rgba(43,36,32,0.08), 0 2px 0 rgba(255,255,255,0.6);
+    padding:30px 24px; text-align:center; position:relative; transition:transform .2s ease;
+  }
+  .plan:hover{ transform:translateY(-6px);}
+  .plan.popular{ border:2px solid var(--terracotta);}
+  .plan .badge{
+    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+    background:var(--terracotta); color:#fff; font-family:'Fredoka'; font-weight:600;
+    font-size:12px; padding:4px 14px; border-radius:99px; letter-spacing:.04em;
+  }
+  .egg-icon{ width:56px; height:68px; margin:0 auto 14px; }
+  .plan h3{ font-size:20px; margin-bottom:4px;}
+  .plan .price{ font-family:'Fredoka'; font-weight:700; font-size:30px; color:var(--blue-deep); margin:10px 0 4px;}
+  .plan .price span{ font-size:14px; font-weight:500; color:var(--ink-soft); font-family:'Inter';}
+  .plan .desc{ color:var(--ink-soft); font-size:14px; margin-bottom:20px; min-height:40px;}
+  .plan .btn{ width:100%; font-size:14px; padding:12px 18px;}
+
+  /* POR QUE */
+  .why{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  @media (max-width:900px){ .why{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:540px){ .why{grid-template-columns:1fr;} }
+  .why-item{ text-align:center; padding:20px 14px;}
+  .why-item .ic{
+    width:64px; height:64px; border-radius:18px; margin:0 auto 16px;
+    display:flex; align-items:center; justify-content:center; font-size:28px;
+  }
+  .why-item h4{ font-size:17px; margin-bottom:6px;}
+  .why-item p{ font-size:14px; color:var(--ink-soft);}
+
+  /* DEPOIMENTO */
+  .testimonial{
+    background:var(--blue); color:#fff; border-radius:28px; padding:54px;
+    text-align:center; max-width:760px; margin:0 auto; position:relative;
+  }
+  @media (max-width:600px){ .testimonial{padding:36px 24px;} }
+  .testimonial p{ font-size:20px; font-family:'Fredoka'; font-weight:500; line-height:1.5; margin-bottom:22px;}
+  .testimonial .who{ font-size:14px; color:rgba(255,255,255,0.75);}
+
+  /* CTA FINAL */
+  .cta-final{
+    background:linear-gradient(135deg, var(--yolk) 0%, var(--terracotta) 100%);
+    border-radius:32px; padding:60px 40px; text-align:center; color:#fff;
+  }
+  .cta-final h2{ color:#fff; font-size:32px; margin-bottom:14px;}
+  .cta-final p{ color:rgba(255,255,255,0.92); margin-bottom:28px; font-size:16px;}
+  .cta-final .btn-primary{ background:#fff; color:var(--terracotta); box-shadow:0 8px 20px rgba(43,36,32,0.2);}
+
+  /* FOOTER */
+  footer{ background:var(--ink); color:rgba(255,255,255,0.7); padding:56px 0 28px; margin-top:40px;}
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:36px; margin-bottom:36px;}
+  @media (max-width:780px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .foot-grid{grid-template-columns:1fr;} }
+  .foot-logo{ display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .foot-logo img{ height:34px; filter:brightness(0) invert(1); opacity:.9;}
+  .foot-logo span{ font-family:'Fredoka'; font-weight:700; font-size:18px; color:#fff;}
+  footer h5{ color:#fff; font-family:'Fredoka'; font-weight:600; font-size:14px; margin-bottom:14px; letter-spacing:.03em;}
+  footer ul{ list-style:none;}
+  footer li{ margin-bottom:10px; font-size:14px;}
+  footer a:hover{ color:#fff;}
+  .foot-form{ display:flex; gap:8px; margin-top:10px;}
+  .foot-form input{
+    flex:1; padding:11px 14px; border-radius:99px; border:none; font-size:14px; min-width:0;
+  }
+  .foot-form button{
+    background:var(--terracotta); color:#fff; border:none; border-radius:99px;
+    padding:0 18px; font-family:'Fredoka'; font-weight:600; cursor:pointer; font-size:13px;
+  }
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.1); padding-top:22px; text-align:center; font-size:13px;
+  }
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+<body>
+
+    </a>
+
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="#top" class="nav-logo">
+      <img src="logo.png" alt="OvoFy">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#planos">Planos</a>
+      <a href="#por-que">Por que nós</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#planos" class="btn btn-ghost">Ver planos</a>
+      <a href="#planos" class="btn btn-primary">Assinar agora</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🥚 Direto do ninho até a sua porta</span>
+        <h1>Ovos fresquinhos toda semana, <span class="accent">sem você sair de casa.</span></h1>
+        <p class="lead">A OvoFy entrega ovos selecionados de granjas parceiras na frequência que você escolher. Você define o ritmo, a gente cuida do resto.</p>
+        <div class="hero-actions">
+          <a href="#planos" class="btn btn-primary">Escolher meu plano</a>
+          <a href="#como-funciona" class="btn btn-ghost">Como funciona</a>
+        </div>
+        <div class="hero-trust">
+          <div>48h<span>do ninho até a porta</span></div>
+          <div>+30<span>granjas parceiras</span></div>
+          <div>4,9★<span>avaliação dos assinantes</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ring"></div>
+        <img src="logo.png" alt="Logo OvoFy">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Três passos até o café da manhã</h2>
+        <p>Um fluxo simples para você nunca mais ficar sem ovo fresco em casa.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>Coleta na granja</h3>
+          <p>Selecionamos ovos colhidos no mesmo dia em granjas parceiras de pequeno porte, com boas práticas de criação.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Conferência e embalagem</h3>
+          <p>Cada dúzia passa por inspeção de qualidade e vai para uma embalagem reforçada, pronta para viagem.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>Entrega na sua porta</h3>
+          <p>Você escolhe o dia e a frequência. A gente entrega direto na sua casa, sem complicação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="planos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Planos</span>
+        <h2>Escolha sua dúzia ideal</h2>
+        <p>Pause, troque ou cancele quando quiser. Sem fidelidade, sem letra miúda.</p>
+      </div>
+      <div class="carton">
+        <div class="carton-inner">
+          <div class="plan">
+            <h3>Ninho Pequeno</h3>
+            <div class="price">R$ 39,90<span>/mês</span></div>
+            <p class="desc">30 ovos (uma cartela) por mês. Ideal para 1 ou 2 pessoas.</p>
+            <a href="https://pay.kiwify.com.br/S5AeoYh" target="_blank" rel="noopener" class="btn btn-ghost">Quero esse</a>
+          </div>
+          <div class="plan popular">
+            <span class="badge">Mais assinado</span>
+            <h3>Ninho Família</h3>
+            <div class="price">R$ 69,90<span>/mês</span></div>
+            <p class="desc">60 ovos (duas cartelas) por mês, entregues no dia que você escolher.</p>
+            <a href="https://pay.kiwify.com.br/FQKYyP4" target="_blank" rel="noopener" class="btn btn-primary">Quero esse</a>
+          </div>
+          <div class="plan">
+            <h3>Ninho Grande</h3>
+            <div class="price">R$ 129,90<span>/mês</span></div>
+            <p class="desc">120 ovos (quatro cartelas) por mês. Para quem cozinha, vende ou compartilha.</p>
+            <a href="https://pay.kiwify.com.br/cttEIdJ" target="_blank" rel="noopener" class="btn btn-ghost">Quero esse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="por-que">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Por que a OvoFy</span>
+        <h2>Feito para quem leva o café da manhã a sério</h2>
+      </div>
+      <div class="why">
+        <div class="why-item">
+          <div class="ic" style="background:rgba(217,131,33,0.12);">🐔</div>
+          <h4>Granjas selecionadas</h4>
+          <p>Parceiros avaliados por qualidade e bem-estar animal.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic" style="background:rgba(47,92,130,0.12);">🚚</div>
+          <h4>Entrega no seu ritmo</h4>
+          <p>Semanal, quinzenal ou mensal. Você decide a frequência.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic" style="background:rgba(111,140,63,0.12);">🌱</div>
+          <h4>Embalagem consciente</h4>
+          <p>Caixas reaproveitáveis, devolvidas na entrega seguinte.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic" style="background:rgba(217,105,46,0.12);">🔁</div>
+          <h4>Liberdade total</h4>
+          <p>Pause, troque o plano ou cancele em poucos cliques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="testimonial">
+        <p>"Desde que assinei a OvoFy, nunca mais cheguei no fim de semana sem ovo em casa. A diferença de sabor pro ovo de mercado é gritante."</p>
+        <div class="who">Marina T. — Assinante desde 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contato">
+    <div class="wrap">
+      <div class="cta-final">
+        <h2>Pronto pra ter ovo fresco toda semana?</h2>
+        <p>Leva menos de 2 minutos para montar sua assinatura.</p>
+        <a href="#planos" class="btn btn-primary">Montar minha assinatura</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <img src="logo_cinza.png" alt="OvoFy">
+          <span>OvoFy</span>
+        </div>
+        <p style="font-size:14px; max-width:260px;">Assinatura de ovos frescos, entregues direto na sua casa.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#por-que">Por que nós</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="mailto:suporte@ovofy.com.br">suporte@ovofy.com.br</a></li>
+          <li><a href="https://www.instagram.com/ovofy.limeira">Nosso Instragam</a></li>
+
+          <li>Limeira, SP</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Receba novidades</h5>
+        <p style="font-size:13px; margin-bottom:6px;">Avisos sobre novas granjas parceiras e promoções.</p>
+        <form class="foot-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Cadastro recebido! Em breve você recebe novidades da OvoFy.');">
+          <input type="email" placeholder="seu.nome@email.com" required>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+Nenhuma galinha foi estressada na programação deste site, mas confessamos que quebramos a cabeça e alguns ovos! 😂<br/>
+© 2026 - www.OvoFy.com.br - Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
