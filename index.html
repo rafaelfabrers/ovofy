@@ -90,6 +90,12 @@
   .nav-links a:hover{ color:var(--terracotta);}
   .nav-cta{ display:flex; align-items:center; gap:16px;}
   .nav-toggle{ display:none; background:none; border:none; font-size:24px; cursor:pointer; color:var(--ink);}
+  .nav-badge{
+    display:inline-flex; align-items:center; gap:4px; font-size:12px; font-weight:600;
+    color:#1E7E34; background:#E6F4EA; border:1px solid rgba(30,126,52,0.25);
+    padding:6px 14px; border-radius:99px; margin-left:14px; white-space:nowrap;
+  }
+  @media (max-width:1080px){ .nav-badge{display:none;} }
 
   @media (max-width:860px){
     .nav-links{
@@ -103,21 +109,18 @@
   }
 
   /* HERO */
-  .hero{ position:relative; padding:72px 0 60px; overflow:hidden;}
+  .hero{ position:relative; padding:40px 0 60px; overflow:hidden;}
   .hero::before{
     content:""; position:absolute; top:-120px; right:-160px; width:480px; height:480px;
     background:radial-gradient(circle, rgba(242,163,60,0.25), transparent 70%); border-radius:50%;
   }
-  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; position:relative;}
-  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr; text-align:center;} .hero::before{display:none;} }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center; position:relative; text-align:center;}
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} .hero::before{display:none;} }
   .hero h1{ font-size:48px; line-height:1.12; margin:18px 0 20px;}
   .hero h1 .accent{color:var(--terracotta);}
-  .hero p.lead{ font-size:18px; color:var(--ink-soft); max-width:480px; margin-bottom:30px;}
-  @media (max-width:900px){ .hero p.lead{margin-left:auto; margin-right:auto;} }
-  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap;}
-  @media (max-width:900px){ .hero-actions{justify-content:center;} }
-  .hero-trust{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap;}
-  @media (max-width:900px){ .hero-trust{justify-content:center;} }
+  .hero p.lead{ font-size:18px; color:var(--ink-soft); max-width:480px; margin:0 auto 30px;}
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
+  .hero-trust{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap; justify-content:center;}
   .hero-trust div{ font-family:'Fredoka', sans-serif; font-weight:700; font-size:22px; color:var(--blue);}
   .hero-trust span{ display:block; font-family:'Inter'; font-weight:500; font-size:13px; color:var(--ink-soft);}
   .hero-visual{ display:flex; justify-content:center; position:relative;}
@@ -281,6 +284,7 @@
     <div class="nav-cta">
       <a href="#planos" class="btn btn-ghost">Ver planos</a>
       <a href="#planos" class="btn btn-primary">Assinar agora</a>
+      <a href="https://transparencyreport.google.com/safe-browsing/search?url=ovofy.com.br" target="_blank" rel="noopener" class="nav-badge">✅ Segurança verificada pelo Google</a>
     </div>
   </nav>
 </header>
@@ -301,6 +305,7 @@
           <div>+30<span>granjas parceiras</span></div>
           <div>4,9★<span>avaliação dos assinantes</span></div>
         </div>
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=ovofy.com.br" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; margin-top:24px; font-size:13px; font-weight:600; color:#fff; background:var(--ink); padding:10px 18px; border-radius:99px;">🛡️ Site verificado — Google Safe Browsing</a>
       </div>
       <div class="hero-visual">
         <div class="ring"></div>
@@ -313,7 +318,7 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Como funciona</span>
-        <h2>Três passos até o café da manhã</h2>
+        <h2>Três passos até chegar na porta da sua casa</h2>
         <p>Um fluxo simples para você nunca mais ficar sem ovo fresco em casa.</p>
       </div>
       <div class="steps">
@@ -414,7 +419,7 @@
       <div class="cta-final">
         <h2>E você? Está pronto para viver essa experiência?</h2>
         <p>Leva menos de 2 minutos para assinar. Usamos o KiwiFy para processar nossos pagamentos com segurança.</p>
-	<p>Fique tranquilo! Você pode cancelar a qualquer momento, ok?</p>
+	<p>Sem burocracia, você pausa ou cancela quando quiser.</p>
 
         <a href="#planos" class="btn btn-primary">Montar minha assinatura</a>
       </div>
@@ -430,7 +435,8 @@
           <img src="logo_cinza.png" alt="OvoFy">
           <span>OvoFy</span>
         </div>
-        <p style="font-size:14px; max-width:260px;">Assinatura de ovos frescos, entregues direto na sua casa.</p>
+        <p style="font-size:14px; max-width:260px;">Ovos selecionados, entregues com cuidado, direto na sua porta.</p>
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=ovofy.com.br" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12px; color:rgba(255,255,255,0.75); border:1px solid rgba(255,255,255,0.2); padding:6px 12px; border-radius:99px;">🛡️ Site verificado — Google Safe Browsing</a>
       </div>
       <div>
         <h5>Navegação</h5>
