@@ -212,8 +212,9 @@
 
   /* FOOTER */
   footer{ background:var(--ink); color:rgba(255,255,255,0.7); padding:56px 0 28px; margin-top:40px;}
-  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:36px; margin-bottom:36px; text-align:center;}
-  @media (max-width:780px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-grid{ display:grid; grid-template-columns:0.8fr 1.3fr 1fr 1fr 1.2fr; gap:32px; margin-bottom:36px; text-align:center; align-items:start;}
+  .foot-badge-col{ display:flex; align-items:center; justify-content:center;}
+  @media (max-width:960px){ .foot-grid{grid-template-columns:1fr 1fr;} .foot-badge-col{grid-column:1/-1;} }
   @media (max-width:480px){ .foot-grid{grid-template-columns:1fr;} }
   .foot-logo{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:14px;}
   .foot-logo img{ height:34px; filter:brightness(0) invert(1); opacity:.9;}
@@ -222,7 +223,7 @@
   footer ul{ list-style:none;}
   footer li{ margin-bottom:10px; font-size:14px;}
   footer a:hover{ color:#fff;}
-  .foot-form{ display:flex; gap:8px; margin-top:10px; justify-content:center;}
+  .foot-form{ display:flex; gap:8px; margin:10px auto 0; justify-content:center; max-width:230px;}
   .foot-form input{
     flex:1; padding:11px 14px; border-radius:99px; border:none; font-size:14px; min-width:0;
   }
@@ -430,15 +431,17 @@
 <footer>
   <div class="wrap">
     <div class="foot-grid">
+      <div class="foot-badge-col">
+        <a href="https://transparencyreport.google.com/safe-browsing/search?url=ovofy.com.br" target="_blank" rel="noopener" style="display:inline-block; background:#fff; padding:8px 14px; border-radius:12px; line-height:0;">
+          <img src="selo-google-safe-browsing.png" alt="Google Safe Browsing - Site 100% Seguro" style="height:44px; width:auto; display:block;">
+        </a>
+      </div>
       <div>
         <div class="foot-logo">
           <img src="logo_cinza.png" alt="OvoFy">
           <span>OvoFy</span>
         </div>
         <p style="font-size:14px; max-width:260px; margin-left:auto; margin-right:auto;">Ovos selecionados, entregues com cuidado, direto na sua porta.</p>
-        <a href="https://transparencyreport.google.com/safe-browsing/search?url=ovofy.com.br" target="_blank" rel="noopener" style="display:inline-block; margin-top:14px; background:#fff; padding:8px 14px; border-radius:12px; line-height:0;">
-          <img src="selo-google-safe-browsing.png" alt="Google Safe Browsing - Site 100% Seguro" style="height:40px; width:auto; display:block;">
-        </a>
       </div>
       <div>
         <h5>Navegação</h5>
