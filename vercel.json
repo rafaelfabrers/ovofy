@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/whatsapp",
+      "destination": "https://wa.me/5519983333412?text=Oi%2C%20vim%20do%20site%20da%20OvoFy%20e%20queria%20saber%20mais%20sobre%20as%20assinaturas!",
+      "permanent": false
+    },
+    {
+      "source": "/ninhopequeno",
+      "destination": "https://pay.kiwify.com.br/ZNyCHCP",
+      "permanent": false
+    },
+    {
+      "source": "/ninhofamilia",
+      "destination": "https://pay.kiwify.com.br/CEEalfs",
+      "permanent": false
+    },
+    {
+      "source": "/ninhogrande",
+      "destination": "https://pay.kiwify.com.br/i4xIzJ0",
+      "permanent": false
+    }
+  ]
+}
